@@ -1,0 +1,89 @@
+﻿@using MvcCv.Models.Entity;
+@model List<TblIletisim>
+@{
+    ViewBag.Title = "IletisimListele";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | User Profile</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- /.col -->
+                    <div class="col-md-12">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="timeline">
+                                    <!-- The timeline -->
+                                    <div class="timeline timeline-inverse">
+                                        @foreach (var x in Model)
+                                        {
+                                            <!-- timeline time label -->
+                                            <div class="time-label">
+                                                <span class="bg-success">
+                                                    @(((DateTime)x.Tarih).ToString("dd-MMM-yyyy"))
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <i class="fas fa-comments bg-primary"></i>
+
+                                                <div class="timeline-item">
+                                                    <span class="time"><i class="far fa-clock"></i> @x.Mail</span>
+
+                                                    <h3 class="timeline-header"><a href="#">@x.AdSoyad</a> @x.Konu</h3>
+
+                                                    <div class="timeline-body">
+                                                        @x.Mesaj
+                                                    </div>
+                                               
+                                                </div>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.card-body -->
+                    </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+    </div><!-- /.container-fluid -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+</body>
+</html>
+
+
